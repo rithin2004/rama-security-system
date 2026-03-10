@@ -1,5 +1,6 @@
 import express from "express";
 import helmet from "helmet";
+import cors from "cors";
 
 import employeeRoutes from "./modules/employees/employee.routes.js";
 import locationRoutes from "./modules/locations/location.routes.js";
@@ -26,6 +27,13 @@ import swaggerUi from "swagger-ui-express";
 import { swaggerSpec } from "./config/swagger.js";
 
 const app = express();
+
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 
 app.use(helmet({
   crossOriginResourcePolicy: false

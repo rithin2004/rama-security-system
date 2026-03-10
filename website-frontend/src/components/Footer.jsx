@@ -1,81 +1,108 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { getCompany } from "../api/website.api";
 
 export default function Footer() {
+
+  const [company, setCompany] = useState(null);
+
+  useEffect(() => {
+
+    async function loadCompany() {
+      try {
+        const data = await getCompany();
+        setCompany(data);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    loadCompany();
+
+  }, []);
+
   return (
     <footer className="bg-[#163c8c] text-white pt-14 pb-6">
+
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
-        {/* ABOUT */}
         <div>
-          <h3 className="font-semibold text-lg mb-4">ABOUT RAMA & RAMA</h3>
+          <h3 className="font-semibold text-lg mb-4">
+            ABOUT {company?.companyName || "Rama Security"}
+          </h3>
+
           <p className="text-sm leading-relaxed">
-            Rama & Rama is a trusted security services provider in India,
-            delivering professional corporate and residential security
-            solutions with trained personnel and advanced technology.
+            {company?.about || "Professional security solutions."}
           </p>
         </div>
 
-        {/* USEFUL LINKS */}
         <div>
           <h3 className="font-semibold text-lg mb-4">USEFUL LINKS</h3>
+
           <ul className="space-y-2 text-sm">
-            <li><Link to="/about" className="hover:underline">About Us</Link></li>
-            <li><Link to="/services" className="hover:underline">Our Services</Link></li>
-            <li><Link to="/whyus" className="hover:underline">Why Choose Us</Link></li>
-            <li><Link to="/testimonials" className="hover:underline">Testimonials</Link></li>
-            <li><Link to="/contact" className="hover:underline">Contact Us</Link></li>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/services">Services</Link></li>
+            <li><Link to="/whyus">Why Us</Link></li>
+            <li><Link to="/testimonials">Testimonials</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
           </ul>
         </div>
 
-        {/* SOLUTIONS */}
         <div>
           <h3 className="font-semibold text-lg mb-4">OUR SOLUTIONS</h3>
+
           <ul className="space-y-2 text-sm">
             <li>Corporate Security</li>
-            <li>Apartment / Building Security</li>
-            <li>Employee Services</li>
-            <li>24/7 Monitoring Solutions</li>
-            <li>Event Security Management</li>
+            <li>Apartment Security</li>
+            <li>24/7 Monitoring</li>
+            <li>Event Security</li>
           </ul>
         </div>
 
-        {/* CONTACT */}
         <div>
-          <h3 className="font-semibold text-lg mb-4">CONTACT DETAILS</h3>
 
-          <p className="text-sm font-semibold">Rama & Rama Security Services</p>
+          <h3 className="font-semibold text-lg mb-4">
+            CONTACT DETAILS
+          </h3>
 
-          <p className="text-sm mt-3 leading-relaxed">
-            Address:<br />
-            123 Security Plaza, Sector 18,<br />
-            New Delhi - 110001, India
+          <p className="text-sm font-semibold">
+            {company?.companyName}
           </p>
 
           <p className="text-sm mt-3">
-            Phone:<br />
-            +91-11-4646-5555 / 4646-6666
+            {company?.address}
           </p>
 
           <p className="text-sm mt-3">
-            Email:<br />
-            info@ramarama.com
+            {company?.phone}
           </p>
+
+          <p className="text-sm mt-3">
+            {company?.email}
+          </p>
+
         </div>
+
       </div>
 
-      {/* Bottom Bar */}
       <div className="border-t border-white/20 mt-10 pt-4 px-4">
+
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between text-sm">
-          <p>© {new Date().getFullYear()} Rama & Rama Security Services. All rights reserved.</p>
+
+          <p>
+            © {new Date().getFullYear()} {company?.companyName}. All rights reserved.
+          </p>
 
           <div className="flex gap-6 mt-2 md:mt-0">
-            <span className="cursor-pointer hover:underline">Privacy Policy</span>
-            <span className="cursor-pointer hover:underline">Terms of Service</span>
-            <span className="cursor-pointer hover:underline">Careers</span>
+            <span>Privacy Policy</span>
+            <span>Terms of Service</span>
+            <span>Careers</span>
           </div>
+
         </div>
+
       </div>
+
     </footer>
   );
 }
