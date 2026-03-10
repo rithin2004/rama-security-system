@@ -76,7 +76,7 @@ const Home = () => {
             />
 
             {/* Overlay */}
-            <div className="absolute inset-0 bg-black/50" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/60" />
 
             {/* Content */}
             <div className="relative z-20 px-6 md:px-16 lg:px-32 h-full flex items-center">
@@ -93,7 +93,7 @@ const Home = () => {
 
                 <button
                   onClick={scrollToContact}
-                  className="inline-block bg-white text-[#0b2b7a] px-6 py-3 rounded-lg font-medium hover:bg-gray-200 transition"
+                  className="inline-block bg-white text-[#0b2b7a] px-6 py-3 rounded-lg font-medium transition-all duration-300 ease-out hover:bg-gray-200 hover:-translate-y-1 hover:scale-105 hover:shadow-xl active:scale-95"
                 >
                   Contact Now
                 </button>
@@ -116,7 +116,7 @@ const Home = () => {
               onClick={() => setCurrent(i)}
               className={`w-3 h-3 rounded-full transition ${
                 i === current
-                  ? "bg-white scale-110"
+                  ? "bg-white scale-110 shadow-md"
                   : "bg-gray-400"
               }`}
             />

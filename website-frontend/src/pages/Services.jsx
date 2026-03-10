@@ -32,11 +32,16 @@ export default function Services() {
     >
       <div className="max-w-7xl mx-auto px-6">
 
-        <h2 className="text-3xl font-bold text-center text-[#0b2b7a]">
-          Our Security Services
-        </h2>
+        <div className="flex justify-center">
+          <h2 className="text-4xl font-bold text-[#0b2b7a] relative inline-block">
+            <span className="relative z-10">
+              Our Security Services
+            </span>
+            <span className="absolute inset-0 blur-xl opacity-20 bg-yellow-300"></span>
+          </h2>
+        </div>
 
-        <div className="w-20 h-1 bg-yellow-400 mx-auto mt-3 rounded mb-5"></div>
+        <div className="w-20 h-1 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 mx-auto mt-3 rounded mb-5"></div>
 
         <p className="text-md text-center mb-10 max-w-2xl mx-auto">
           Comprehensive security solutions designed to protect your business, property, and peace of mind.

@@ -26,6 +26,7 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
+        {/* ABOUT */}
         <div>
           <h3 className="font-semibold text-lg mb-4">
             ABOUT {company?.companyName || "Rama Security"}
@@ -36,6 +37,7 @@ export default function Footer() {
           </p>
         </div>
 
+        {/* USEFUL LINKS */}
         <div>
           <h3 className="font-semibold text-lg mb-4">USEFUL LINKS</h3>
 
@@ -48,6 +50,7 @@ export default function Footer() {
           </ul>
         </div>
 
+        {/* OUR SOLUTIONS */}
         <div>
           <h3 className="font-semibold text-lg mb-4">OUR SOLUTIONS</h3>
 
@@ -59,45 +62,27 @@ export default function Footer() {
           </ul>
         </div>
 
+        {/* POLICIES */}
         <div>
+          <h3 className="font-semibold text-lg mb-4">POLICIES</h3>
 
-          <h3 className="font-semibold text-lg mb-4">
-            CONTACT DETAILS
-          </h3>
-
-          <p className="text-sm font-semibold">
-            {company?.companyName}
-          </p>
-
-          <p className="text-sm mt-3">
-            {company?.address}
-          </p>
-
-          <p className="text-sm mt-3">
-            {company?.phone}
-          </p>
-
-          <p className="text-sm mt-3">
-            {company?.email}
-          </p>
-
+          <ul className="space-y-2 text-sm">
+            <li><Link to="/privacy-policy">Privacy Policy</Link></li>
+            <li><Link to="/terms">Terms & Conditions</Link></li>
+            <li><Link to="/refund-policy">Refund Policy</Link></li>
+          </ul>
         </div>
 
       </div>
 
+      {/* COPYRIGHT */}
       <div className="border-t border-white/20 mt-10 pt-4 px-4">
 
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between text-sm">
+        <div className="max-w-7xl mx-auto flex justify-center text-sm">
 
           <p>
             © {new Date().getFullYear()} {company?.companyName}. All rights reserved.
           </p>
-
-          <div className="flex gap-6 mt-2 md:mt-0">
-            <span>Privacy Policy</span>
-            <span>Terms of Service</span>
-            <span>Careers</span>
-          </div>
 
         </div>
 

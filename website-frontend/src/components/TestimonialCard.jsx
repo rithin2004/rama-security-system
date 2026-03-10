@@ -26,6 +26,7 @@ const TestimonialCard = ({ testimonial }) => {
         hover:-translate-y-2 hover:shadow-2xl
       "
     >
+      
 
       {/* TOP CONTENT */}
       <div>
@@ -59,6 +60,7 @@ const TestimonialCard = ({ testimonial }) => {
           className="
             w-10 h-10 rounded-full bg-blue-500
             flex items-center justify-center font-semibold
+            shadow-md
           "
         >
           {name.charAt(0)}

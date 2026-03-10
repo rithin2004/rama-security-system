@@ -89,13 +89,16 @@ export default function Testimonials() {
       className="bg-[#0b2b7a] py-20 px-6 md:px-20 scroll-mt-20 overflow-hidden"
     >
 
-      <div className="max-w-7xl mx-auto relative">
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="absolute inset-0 flex justify-center pointer-events-none z-0">
+          <div className="w-[700px] h-[700px] bg-white/10 blur-3xl rounded-full"></div>
+        </div>
 
         <h2 className="text-4xl font-bold text-white text-center">
           What Our Clients Say
         </h2>
 
-        <div className="w-20 h-1 bg-yellow-400 mx-auto mt-3 rounded mb-10"></div>
+        <div className="w-20 h-1 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 mx-auto mt-3 rounded mb-10"></div>
 
         {!testimonials.length ? (
 
@@ -118,7 +121,7 @@ export default function Testimonials() {
               bg-white/20 text-white p-2 rounded-full z-20
               opacity-0 group-hover:opacity-100
               transition-all duration-300
-              hover:bg-white/40 hover:scale-110"
+              hover:bg-white/40 hover:scale-110 hover:shadow-lg"
             >
               <ChevronLeftIcon className="w-6 h-6"/>
             </button>
@@ -131,7 +134,7 @@ export default function Testimonials() {
               bg-white/20 text-white p-2 rounded-full z-20
               opacity-0 group-hover:opacity-100
               transition-all duration-300
-              hover:bg-white/40 hover:scale-110"
+              hover:bg-white/40 hover:scale-110 hover:shadow-lg"
             >
               <ChevronRightIcon className="w-6 h-6"/>
             </button>

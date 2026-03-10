@@ -9,11 +9,13 @@ const WhyUsCard = ({ whyus }) => {
 
     <div
       className="
+      group
       bg-white
       px-6 py-8
       rounded-xl
       shadow-md
-      hover:shadow-xl
+      border border-gray-100
+      hover:shadow-xl hover:-translate-y-2
       transition-all duration-300
       text-center
       flex flex-col items-center
@@ -22,12 +24,12 @@ const WhyUsCard = ({ whyus }) => {
     >
 
       {/* ICON */}
-      <div className="w-20 h-20 rounded-full bg-[#0b2b7a] flex items-center justify-center mb-5">
-
+      <div className="w-18 h-18 rounded-full bg-[#0b2b7a]/90 group-hover:bg-[#0b2b7a] flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-110">
+        
         {iconURL ? (
-          <img src={iconURL} alt={title} className="w-12 h-12"/>
+          <img src={iconURL} alt={title} className="w-10 h-10"/>
         ) : (
-          <ShieldCheckIcon className="w-12 h-12 text-yellow-400" />
+          <ShieldCheckIcon className="w-10 h-10 text-yellow-400" />
         )}
 
       </div>

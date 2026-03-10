@@ -84,11 +84,16 @@ const Navbar = () => {
 
     <button
       onClick={() => scrollToSection(id)}
-      className={`relative transition ${
-        active === id
-          ? "text-yellow-400 after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-yellow-400"
-          : "hover:text-yellow-400"
-      }`}
+      className={`relative transition-all duration-300 tracking-wide
+        after:absolute after:-bottom-1 after:left-0 after:h-[2px]
+        after:w-full after:origin-left after:transition-transform after:duration-300
+        ${
+          active === id
+            ? "text-yellow-400 after:scale-x-100 after:bg-gradient-to-r after:from-yellow-300 after:to-yellow-500"
+            : "hover:text-yellow-400 after:scale-x-0 hover:after:scale-x-100 after:bg-gradient-to-r after:from-yellow-300 after:to-yellow-500"
+        }
+        hover:traking-wider
+      `}
     >
       {label}
     </button>
@@ -100,7 +105,7 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 w-full z-50 text-white transition-all duration-300 ${
         scrolled
-          ? "bg-[#0b2b7a]/95 backdrop-blur-md shadow-lg"
+          ? "bg-[#0b2b7a]/90 backdrop-blur-lg shadow-[0_10px_40px_rgba(0,0,0,0.35)] border-b border-white/10"
           : "bg-[#0b2b7a]"
       }`}
     >
@@ -110,13 +115,13 @@ const Navbar = () => {
         {/* Logo */}
         <button
           onClick={() => scrollToSection("home")}
-          className="flex items-center space-x-2"
+         className="flex items-center space-x-2 transition-all duration-300 hover:scale-[1.05]"
         >
 
           <img
             src="/companylogo.png"
             alt="Rama & Rama"
-            className="h-10 w-10 md:h-12 md:w-12"
+            className="h-10 w-10 md:h-12 md:w-12 transition duration-300 group-hover:drop-shadow-[0_0_6px_rgba(255,215,0,0.7)]"
           />
 
           <h1 className="text-lg md:text-xl font-bold tracking-wide">
